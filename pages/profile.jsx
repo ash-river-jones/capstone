@@ -10,24 +10,21 @@ import {
 	IdentificationIcon,
 } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
-import GifteeTable from '@/components/GifteeTable';
+
 import Head from 'next/head';
-import DashbaordStats from '@/components/DashboardStats';
+
+import ProfileForm from '../components/ProfileForm';
+import ProfileInfo from '@/components/ProfileInfo';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
 }
 
 const navigation = [
-	{ name: 'Dashboard', href: '/dashboard', icon: HomeModernIcon, current: true },
+	{ name: 'Dashboard', href: '/dashboard', icon: HomeModernIcon, current: false },
 	{ name: 'About', href: '/', icon: GlobeAltIcon, current: false },
 	{ name: 'Request Gift Idea', href: '/request', icon: PaperAirplaneIcon, current: false },
-	{ name: 'Profile', href: '/profile', icon: IdentificationIcon, current: false },
-];
-const holidays = [
-	{ id: 1, name: 'Christmas', href: '#', initial: 'C', current: false },
-	{ id: 2, name: 'Birthdays', href: '#', initial: 'B', current: false },
-	{ id: 3, name: 'Easter', href: '#', initial: 'E', current: false },
+	{ name: 'Profile', href: '/profile', icon: IdentificationIcon, current: true },
 ];
 
 export default function Example() {
@@ -36,7 +33,7 @@ export default function Example() {
 	return (
 		<>
 			<Head>
-				<title>Dashboard</title>
+				<title>Profile</title>
 			</Head>
 			<Transition.Root show={sidebarOpen} as={Fragment}>
 				<Dialog as='div' className='relative z-50 lg:hidden' onClose={setSidebarOpen}>
@@ -122,38 +119,6 @@ export default function Example() {
 													))}
 												</ul>
 											</li>
-											<li>
-												<div className='text-xs font-semibold leading-6 text-gray-400'>
-													Your Holidays
-												</div>
-												<ul role='list' className='-mx-2 mt-2 space-y-1'>
-													{holidays.map((holiday) => (
-														<li key={holiday.name}>
-															<a
-																href={holiday.href}
-																className={classNames(
-																	holiday.current
-																		? 'bg-gray-50 text-indigo-600'
-																		: 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
-																	'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-																)}
-															>
-																<span
-																	className={classNames(
-																		holiday.current
-																			? 'text-indigo-600 border-indigo-600'
-																			: 'text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600',
-																		'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-																	)}
-																>
-																	{holiday.initial}
-																</span>
-																<span className='truncate'>{holiday.name}</span>
-															</a>
-														</li>
-													))}
-												</ul>
-											</li>
 										</ul>
 									</nav>
 								</div>
@@ -203,36 +168,7 @@ export default function Example() {
 									))}
 								</ul>
 							</li>
-							<li>
-								<div className='text-xs font-semibold leading-6 text-gray-400'>Your holidays</div>
-								<ul role='list' className='-mx-2 mt-2 space-y-1'>
-									{holidays.map((holiday) => (
-										<li key={holiday.name}>
-											<a
-												href={holiday.href}
-												className={classNames(
-													holiday.current
-														? 'bg-gray-50 text-indigo-600'
-														: 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
-													'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
-												)}
-											>
-												<span
-													className={classNames(
-														holiday.current
-															? 'text-indigo-600 border-indigo-600'
-															: 'text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600',
-														'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
-													)}
-												>
-													{holiday.initial}
-												</span>
-												<span className='truncate'>{holiday.name}</span>
-											</a>
-										</li>
-									))}
-								</ul>
-							</li>
+
 							<li className='-mx-6 mt-auto'>
 								<a
 									href='#'
@@ -275,13 +211,13 @@ export default function Example() {
 			<main className='lg:pl-72'>
 				<div className='xl:pr-96'>
 					<div className='px-4 py-10 sm:px-6 lg:px-8 lg:py-6'>
-						<GifteeTable />
+						<ProfileForm />
 					</div>
 				</div>
 			</main>
 
 			<aside className='fixed inset-y-0 right-0 hidden w-96 overflow-y-auto border-l border-gray-200 px-4 py-6 sm:px-6 lg:px-8 xl:block'>
-				<DashbaordStats />
+				<ProfileInfo />
 			</aside>
 		</>
 	);

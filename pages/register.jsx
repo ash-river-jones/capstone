@@ -1,8 +1,13 @@
+import Header from '@/components/Header';
+import RegisterForm from '@/components/RegisterForm';
+import Footer from '@/components/Footer';
+
 export default function Register() {
 	return (
-		<div>
-			<h1>Register</h1>
-			<p>Register page</p>
-		</div>
+		<>
+			<Header />
+			<RegisterForm />
+			<Footer />
+		</>
 	);
 }
