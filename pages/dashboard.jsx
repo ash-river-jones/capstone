@@ -13,6 +13,7 @@ import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import GifteeTable from '@/components/GifteeTable';
 import Head from 'next/head';
 import DashbaordStats from '@/components/DashboardStats';
+import Link from 'next/link';
 
 function classNames(...classes) {
 	return classes.filter(Boolean).join(' ');
@@ -30,7 +31,7 @@ const holidays = [
 	{ id: 3, name: 'Easter', href: '#', initial: 'E', current: false },
 ];
 
-export default function Example() {
+export default function Dashboard() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 
 	return (
@@ -98,7 +99,7 @@ export default function Example() {
 												<ul role='list' className='-mx-2 space-y-1'>
 													{navigation.map((item) => (
 														<li key={item.name}>
-															<a
+															<Link
 																href={item.href}
 																className={classNames(
 																	item.current
@@ -117,7 +118,7 @@ export default function Example() {
 																	aria-hidden='true'
 																/>
 																{item.name}
-															</a>
+															</Link>
 														</li>
 													))}
 												</ul>
@@ -129,7 +130,7 @@ export default function Example() {
 												<ul role='list' className='-mx-2 mt-2 space-y-1'>
 													{holidays.map((holiday) => (
 														<li key={holiday.name}>
-															<a
+															<Link
 																href={holiday.href}
 																className={classNames(
 																	holiday.current
@@ -149,7 +150,7 @@ export default function Example() {
 																	{holiday.initial}
 																</span>
 																<span className='truncate'>{holiday.name}</span>
-															</a>
+															</Link>
 														</li>
 													))}
 												</ul>
@@ -179,7 +180,7 @@ export default function Example() {
 								<ul role='list' className='-mx-2 space-y-1'>
 									{navigation.map((item) => (
 										<li key={item.name}>
-											<a
+											<Link
 												href={item.href}
 												className={classNames(
 													item.current
@@ -198,7 +199,7 @@ export default function Example() {
 													aria-hidden='true'
 												/>
 												{item.name}
-											</a>
+											</Link>
 										</li>
 									))}
 								</ul>
@@ -208,7 +209,7 @@ export default function Example() {
 								<ul role='list' className='-mx-2 mt-2 space-y-1'>
 									{holidays.map((holiday) => (
 										<li key={holiday.name}>
-											<a
+											<Link
 												href={holiday.href}
 												className={classNames(
 													holiday.current
@@ -228,13 +229,13 @@ export default function Example() {
 													{holiday.initial}
 												</span>
 												<span className='truncate'>{holiday.name}</span>
-											</a>
+											</Link>
 										</li>
 									))}
 								</ul>
 							</li>
 							<li className='-mx-6 mt-auto'>
-								<a
+								<Link
 									href='#'
 									className='flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50'
 								>
@@ -245,7 +246,7 @@ export default function Example() {
 									/>
 									<span className='sr-only'>Your profile</span>
 									<span aria-hidden='true'>Tom Cook</span>
-								</a>
+								</Link>
 							</li>
 						</ul>
 					</nav>
@@ -262,14 +263,14 @@ export default function Example() {
 					<Bars3Icon className='h-6 w-6' aria-hidden='true' />
 				</button>
 				<div className='flex-1 text-sm font-semibold leading-6 text-gray-900'>Dashboard</div>
-				<a href='#'>
+				<Link href='#'>
 					<span className='sr-only'>Your profile</span>
 					<img
 						className='h-8 w-8 rounded-full bg-gray-50'
 						src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
 						alt=''
 					/>
-				</a>
+				</Link>
 			</div>
 
 			<main className='lg:pl-72'>

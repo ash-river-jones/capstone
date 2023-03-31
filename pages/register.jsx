@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 export default function Register() {
 	return (
 		<>
-			<Header />
+			<Header auth={'register'} />
 			<RegisterForm />
 			<Footer />
 		</>

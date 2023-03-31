@@ -1,7 +1,7 @@
 const stats = [
 	{ name: 'Total Gifts Purchased', stat: '71,897' },
 	{ name: 'Avg. Price per Gift', stat: '$ 37.16' },
-	{ name: 'Avg. Cost per Giftee', stat: '$ 75.34' },
+	{ name: 'Avg. Cost per Person', stat: '$ 75.34' },
 ];
 
 export default function DashbaordStats() {

@@ -26,7 +26,7 @@ const navigation = [
 	{ name: 'Profile', href: '/profile', icon: IdentificationIcon, current: false },
 ];
 
-export default function Example() {
+export default function AddGiftee() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 
 	return (

@@ -1,4 +1,6 @@
-export default function RegisterForm() {
+import Link from 'next/link';
+
+export default function LoginForm() {
 	return (
 		<>
 			<div className='flex min-h-full bg-white'>
@@ -11,14 +13,14 @@ export default function RegisterForm() {
 								alt='Your Company'
 							/>
 							<h2 className='mt-6 text-3xl font-bold tracking-tight text-gray-900'>
-								Sign up for an account
+								Sign in to your account
 							</h2>
 						</div>
 
 						<div className='mt-8'>
 							<div>
 								<div>
-									<p className='text-sm font-medium leading-6 text-gray-900'>Sign up with</p>
+									<p className='text-sm font-medium leading-6 text-gray-900'>Sign in with</p>
 
 									<div className='mt-2 grid grid-cols-3 gap-3'>
 										<div>
@@ -26,7 +28,7 @@ export default function RegisterForm() {
 												href='#'
 												className='inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'
 											>
-												<span className='sr-only'>Sign up with Facebook</span>
+												<span className='sr-only'>Sign in with Facebook</span>
 												<svg
 													className='h-5 w-5'
 													aria-hidden='true'
@@ -47,7 +49,7 @@ export default function RegisterForm() {
 												href='#'
 												className='inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'
 											>
-												<span className='sr-only'>Sign up with Twitter</span>
+												<span className='sr-only'>Sign in with Twitter</span>
 												<svg
 													className='h-5 w-5'
 													aria-hidden='true'
@@ -64,7 +66,7 @@ export default function RegisterForm() {
 												href='#'
 												className='inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'
 											>
-												<span className='sr-only'>Sign up with GitHub</span>
+												<span className='sr-only'>Sign in with GitHub</span>
 												<svg
 													className='h-5 w-5'
 													aria-hidden='true'
@@ -94,25 +96,6 @@ export default function RegisterForm() {
 
 							<div className='mt-6'>
 								<form action='#' method='POST' className='space-y-6'>
-									<div>
-										<label
-											htmlFor='name'
-											className='block text-sm font-medium leading-6 text-gray-900'
-										>
-											Name
-										</label>
-										<div className='mt-2'>
-											<input
-												id='name'
-												name='name'
-												type='text'
-												autoComplete='name'
-												required
-												className='block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-											/>
-										</div>
-									</div>
-
 									<div>
 										<label
 											htmlFor='email'
@@ -163,6 +146,15 @@ export default function RegisterForm() {
 												Remember me
 											</label>
 										</div>
+
+										<div className='text-sm'>
+											<Link
+												href='/profile'
+												className='font-medium text-indigo-600 hover:text-indigo-500'
+											>
+												Forgot your password?
+											</Link>
+										</div>
 									</div>
 
 									<div>
@@ -170,7 +162,7 @@ export default function RegisterForm() {
 											type='submit'
 											className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
 										>
-											Sign up
+											Sign in
 										</button>
 									</div>
 								</form>

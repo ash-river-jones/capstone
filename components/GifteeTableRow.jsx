@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function GifteeTableRow({ giftee }) {
 	return (
 		<tr key={giftee.email}>
@@ -14,9 +16,9 @@ export default function GifteeTableRow({ giftee }) {
 			<td className='hidden px-3 py-4 text-sm text-gray-500 sm:table-cell'>{giftee.email}</td>
 			<td className='px-3 py-4 text-sm text-gray-500'>{giftee.role}</td>
 			<td className='py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0'>
-				<a href='#' className='text-indigo-600 hover:text-indigo-900'>
+				<Link href='#' className='text-indigo-600 hover:text-indigo-900'>
 					Edit<span className='sr-only'>, {giftee.name}</span>
-				</a>
+				</Link>
 			</td>
 		</tr>
 	);

@@ -27,7 +27,7 @@ const navigation = [
 	{ name: 'Profile', href: '/profile', icon: IdentificationIcon, current: true },
 ];
 
-export default function Example() {
+export default function Profile() {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 
 	return (
@@ -197,7 +197,7 @@ export default function Example() {
 					<span className='sr-only'>Open sidebar</span>
 					<Bars3Icon className='h-6 w-6' aria-hidden='true' />
 				</button>
-				<div className='flex-1 text-sm font-semibold leading-6 text-gray-900'>Dashboard</div>
+				<div className='flex-1 text-sm font-semibold leading-6 text-gray-900'>Profile</div>
 				<a href='#'>
 					<span className='sr-only'>Your profile</span>
 					<img

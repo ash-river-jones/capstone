@@ -5,11 +5,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 const navigation = [
 	{ name: 'About', href: '/' },
 	{ name: 'Dashboard', href: '/dashboard' },
-	{ name: 'Login', href: '/login' },
-	{ name: 'Register', href: '/register' },
+	{ name: 'Contact', href: '/contact' },
 ];
 
-export default function Example() {
+import Link from 'next/link';
+
+export default function Header({ auth }) {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 	return (
@@ -18,13 +19,13 @@ export default function Example() {
 				<div className='flex flex-1'>
 					<div className='hidden lg:flex lg:gap-x-12'>
 						{navigation.map((item) => (
-							<a
+							<Link
 								key={item.name}
 								href={item.href}
 								className='text-sm font-semibold leading-6 text-gray-900'
 							>
 								{item.name}
-							</a>
+							</Link>
 						))}
 					</div>
 					<div className='flex lg:hidden'>
@@ -38,18 +39,22 @@ export default function Example() {
 						</button>
 					</div>
 				</div>
-				<a href='#' className='-m-1.5 p-1.5'>
+				<Link href='/' className='-m-1.5 p-1.5'>
 					<span className='sr-only'>Your Company</span>
 					<img
 						className='h-8 w-auto'
 						src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
 						alt=''
 					/>
-				</a>
+				</Link>
 				<div className='flex flex-1 justify-end'>
-					<a href='#' className='text-sm font-semibold leading-6 text-gray-900'>
-						Log in <span aria-hidden='true'>&rarr;</span>
-					</a>
+					<Link
+						href={auth === 'login' ? '/register' : '/login'}
+						className='text-sm font-semibold leading-6 text-gray-900'
+					>
+						{auth === 'login' ? 'Register ' : 'Log in '}
+						<span aria-hidden='true'>&rarr;</span>
+					</Link>
 				</div>
 			</nav>
 			<Dialog as='div' className='lg:hidden' open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -66,29 +71,29 @@ export default function Example() {
 								<XMarkIcon className='h-6 w-6' aria-hidden='true' />
 							</button>
 						</div>
-						<a href='#' className='-m-1.5 p-1.5'>
+						<Link href='/' className='-m-1.5 p-1.5'>
 							<span className='sr-only'>Your Company</span>
 							<img
 								className='h-8 w-auto'
 								src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'
 								alt=''
 							/>
-						</a>
+						</Link>
 						<div className='flex flex-1 justify-end'>
-							<a href='#' className='text-sm font-semibold leading-6 text-gray-900'>
+							<Link href='/login' className='text-sm font-semibold leading-6 text-gray-900'>
 								Log in <span aria-hidden='true'>&rarr;</span>
-							</a>
+							</Link>
 						</div>
 					</div>
 					<div className='mt-6 space-y-2'>
 						{navigation.map((item) => (
-							<a
+							<Link
 								key={item.name}
 								href={item.href}
 								className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
 							>
 								{item.name}
-							</a>
+							</Link>
 						))}
 					</div>
 				</Dialog.Panel>
